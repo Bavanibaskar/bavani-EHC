@@ -1,0 +1,192 @@
+<html>
+    <head>
+        <title>RS Education</title>
+        <link rel="stylesheet" href="style.css">
+        <link  rel="https://fonts.googleapis.com/css?
+        family=Dosis&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <section>
+        <div class="hero">
+            <div class="navbar">
+                <img src="images/logo.png" width="200" height="200">
+                <ul>
+                    <li><a href="">Home</a></li>
+                    <li><a href="">About</a></li>
+                    <li><a href="">Contact</a></li>
+                </ul>
+                <div class="navbar-icons">
+                    <img src="images/bell.png">
+                    <img src="images/user.png">
+                    <img src="images/menu.png">
+                </div>
+
+            </div>
+            <div class="banner">
+                <div class="left-column">
+                    <div class="search-box">
+                        <img src="images/search.png">
+                        <input type="text" placeholder="search">
+                    </div>
+                    <h1> Unlocking <span>Knowledge</span></h1>
+                    <h2>Nurturing Minds For A <span>Brighter Tomorrow.</span></h2>
+                <p>
+                Welcome to RS Education, where imagination meets inspiration. 
+                Our educational institution is a place where dreams take flight and minds flourish. 
+                With a dedicated faculty, cutting-edge resources, and a nurturing environment, we empower students to reach for the stars. 
+                Join us on a journey of knowledge, creativity, and limitless possibilities at RS Education.
+            </p>
+            <div class="btn">
+                <button type="button" class="primary-btn">Visit Us</button>
+                <button type="button">Start Learning</button>
+
+        </div>
+
+        
+
+
+        </div>
+        
+        
+            <div class="right-column">
+                <img src="images/feature.png">
+            </div>
+
+    </div>          
+</div>
+</section>
+
+
+<section class="Course">
+<div class="container">
+
+    <h1>Courses Available</h1>
+    <p>
+        Discover a world of knowledge with our diverse range of courses, where you can explore everything from the mysteries of space to the art of fine cuisine. Join us on a journey of learning and personal growth today!
+        </p>
+    <div class="row">
+        <div class="course-column">
+            <h3>Science and Technology</h3>
+            <p>
+                Unleash your inner scientist with our Science and Technology courses. From unraveling the secrets of the cosmos to mastering the latest tech trends, embark on a journey of discovery and innovation with us.
+            </p>
+        </div>
+        <div class="course-column">
+            <h3>Arts and Humanities</h3>
+            <p>
+                Ignite your creativity and explore the depths of human expression through our Arts and Humanities courses. From unraveling the stories behind timeless masterpieces to honing your own artistic skills, join us in celebrating the rich tapestry of culture and creativity.
+            </p>
+        </div>
+        <div class="course-column">
+            <h3>Personal Development</h3>
+            <p>
+                Transform yourself with our Personal Development courses. Cultivate mindfulness, financial savvy, communication prowess, and a healthier lifestyle to reach your full potential.
+            </p>
+        </div>
+    </div>
+  </div>
+</section>
+  <section class="registration-form">
+    <div class="registration-box">
+        <h2>College Application</h2>
+        <form id="college-application-form">
+            <div class="form-group">
+                <label for="full-name">Full Name:</label>
+                <input type="text" id="full-name" name="full-name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+           
+                <div class="form-group">
+                    <label for="dob">Date of Birth (dd-mm-yyyy):</label>
+                    <input type="text" id="dob" name="dob" placeholder="dd-mm-yyyy" required>
+                    <small id="dob-error" class="error-message"></small>
+                </div>
+                
+            <div class="form-group">
+                <label for="address">Address:</label>
+                <textarea id="address" name="address" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="program">Program of Interest:</label>
+                <select id="program" name="program" required>
+                    <option value="">Select Program</option>
+                    <option value="Computer Science">Computer Science</option>
+                    <option value="Business Administration">Business Administration</option>
+                    <!-- Add more program options as needed -->
+                </select>
+            </div>
+            <button type="submit">Submit Application</button>
+        </form>
+    </div>
+</section>
+
+    </form>
+</section>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const registrationForm = document.getElementById("registration-form");
+    const dobInput = document.getElementById("dob");
+
+    registrationForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        // You can add your form validation logic here
+
+        // Example validation: Ensure the password is at least 8 characters
+        const password = document.getElementById("password").value;
+        if (password.length < 8) {
+            alert("Password must be at least 8 characters long.");
+            return;
+        }
+
+        // Date of Birth validation and formatting
+        const dobValue = dobInput.value;
+        const formattedDob = formatAndValidateDateOfBirth(dobValue);
+        if (!formattedDob) {
+            alert("Invalid date of birth. Please use the dd-mm-yyyy format.");
+            return;
+        }
+
+        // Form is valid; you can submit the data to the server or perform other actions here
+        alert("Registration successful!");
+        // You can redirect the user or perform other actions here
+    });
+
+    // Function to validate and format the date of birth
+    function formatAndValidateDateOfBirth(dob) {
+        const dateRegex = /^\d{2}-\d{2}-\d{4}$/; // dd-mm-yyyy format
+        if (!dateRegex.test(dob)) {
+            return null;
+        }
+
+        // Split the input into day, month, and year
+        const [day, month, year] = dob.split("-");
+        
+        // Check if the date is valid
+        const parsedDate = new Date(`${year}-${month}-${day}`);
+        if (isNaN(parsedDate)) {
+            return null;
+        }
+
+        // Format the date as dd-mm-yyyy
+        return `${day}-${month}-${year}`;
+    }
+});
+
+
+        // Add an event listener to the date of birth input
+        dobInput.addEventListener("input", function () {
+            dayInput.value = '';
+            monthInput.value = '';
+            yearInput.value = '';
+            dobError.textContent = '';
+        });
+    });
+</script>
+
+</body>
+</html>
+
